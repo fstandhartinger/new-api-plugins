@@ -743,6 +743,76 @@
       ]
     },
     {
+      "key": "decisionmodels",
+      "name": "Decision Models",
+      "icon": "text:DM",
+      "iconFile": {
+        "path": "plugins/tasks/decisionmodels/icon.svg",
+        "sha256": "04e18c4560c2004fb97ae3b6f547e26cb45663cc9abcd47b84d372f4ef1e1c3d"
+      },
+      "website": "https://decisionmodels.io",
+      "sortPriority": 100,
+      "description": {
+        "en": "Typed decisions with Decision Models (Jev-compatible System One), input priced per million tokens and output free",
+        "zh": "Decision Models 结构化判断（兼容 Jev 的 System One 接口），输入按每百万 token 定价，输出免费"
+      },
+      "routes": [
+        {
+          "method": "POST",
+          "path": "/decisionmodels/v1/systemone",
+          "type": "submit",
+          "decode": "decodeSystemOne",
+          "render": "renderSystemOne",
+          "retainResult": false
+        },
+        {
+          "method": "POST",
+          "path": "/v1/systemone",
+          "type": "submit",
+          "decode": "decodeSystemOne",
+          "render": "renderSystemOne",
+          "retainResult": false
+        }
+      ],
+      "usageSchema": {
+        "input_tokens": {
+          "type": "number",
+          "unit": "token",
+          "description": {
+            "en": "Input token unit price",
+            "zh": "输入 token 单价"
+          }
+        }
+      },
+      "usageExamples": [
+        {
+          "label": "Decision Models",
+          "facts": {
+            "input_tokens": 1000
+          }
+        }
+      ],
+      "usageProfiles": null,
+      "models": [
+        "s1-fast",
+        "s1-pro",
+        "quyet-1-large",
+        "s1-llm-auto-router"
+      ],
+      "latest": "1.0.0",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "path": "plugins/tasks/decisionmodels/1.0.0/plugin.js",
+          "sha256": "7d4578bf9199ef257df07046dc83ccc358ee6c0dc9a69208d578e5e6a2324d2e",
+          "minApiVersion": 1,
+          "kind": "task",
+          "baseUrl": "https://api.decisionmodels.io",
+          "auth": "api_key"
+        }
+      ]
+    },
+    {
       "key": "doubao",
       "name": "Doubao",
       "icon": "Doubao.Color",
